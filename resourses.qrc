@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/fonts">
+        <file>resources/RobotoMono-Italic-VariableFont_wght.ttf</file>
+        <file>resources/RobotoMono-VariableFont_wght.ttf</file>
+    </qresource>
+</RCC>

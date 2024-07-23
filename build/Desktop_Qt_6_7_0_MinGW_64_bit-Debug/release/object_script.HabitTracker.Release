@@ -1,0 +1,14 @@
+release/greetwidgetclass.o
+release/habittaskswidgetclass.o
+release/main.o
+release/mydialogwidget.o
+release/stylehelper.o
+release/tabledeligateclass.o
+release/tablewidgetclassmodel.o
+release/widget.o
+release/qrc_resourses.o
+release/moc_greetwidgetclass.o
+release/moc_habittaskswidgetclass.o
+release/moc_mydialogwidget.o
+release/moc_tablewidgetclassmodel.o
+release/moc_widget.o

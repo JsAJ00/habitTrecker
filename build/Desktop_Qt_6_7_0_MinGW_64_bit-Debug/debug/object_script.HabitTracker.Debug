@@ -1,0 +1,14 @@
+debug/greetwidgetclass.o
+debug/habittaskswidgetclass.o
+debug/main.o
+debug/mydialogwidget.o
+debug/stylehelper.o
+debug/tabledeligateclass.o
+debug/tablewidgetclassmodel.o
+debug/widget.o
+debug/qrc_resourses.o
+debug/moc_greetwidgetclass.o
+debug/moc_habittaskswidgetclass.o
+debug/moc_mydialogwidget.o
+debug/moc_tablewidgetclassmodel.o
+debug/moc_widget.o

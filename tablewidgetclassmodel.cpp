@@ -25,8 +25,12 @@ QVariant TableWidgetClassModel::data(const QModelIndex &index, int role) const
     case Qt::CheckStateRole:
         return habitData[index.row()][index.column()] ? Qt::Checked : Qt::Unchecked;
     case Qt::BackgroundRole:
-        if(isCollored(index)){
-            return QBrush(Qt::green);
+        if (MyColor!="none"){
+            if (MyColor == "red"){
+                return QBrush(Qt::red);
+            }else if (MyColor == "green"){
+                return QBrush(Qt::green);
+            }
         }else{
             return QBrush(Qt::blue);
         }
@@ -73,10 +77,10 @@ QVariant TableWidgetClassModel::headerData(int section, Qt::Orientation orientat
 }
 
 
-bool TableWidgetClassModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool TableWidgetClassModel::setData(const QModelIndex &index, const QString& color, int role)
 {
     if(role == Qt::UserRole){
-        habitData[index.row()][index.column()] = value.toBool();
+        MyColor = color;
         emit dataChanged(index, index, {Qt::BackgroundRole});
         return true;
     }

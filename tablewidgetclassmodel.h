@@ -18,7 +18,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)const override;
-    bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
+    bool setData(const QModelIndex& index, const QString& color, int role = Qt::EditRole);
 
     void addHabit(const QString &habit, const QVector<int> &days);
     void deleteHabit(const int index);
@@ -27,9 +27,7 @@ private:
     QStringList habits;
     QVector<QVector<bool>> habitData;
 
-    bool isCollored(const QModelIndex& index)const{
-        return habitData[index.row()][index.column()];
-    }
+    QString MyColor = "none";
 };
 
 #endif // TABLEWIDGETCLASSMODEL_H

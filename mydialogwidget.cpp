@@ -9,15 +9,11 @@ myDialogWidget::myDialogWidget(QWidget *parent)
 
     m_pLineEdit = new QLineEdit;
     m_pPushButton = new QPushButton("add");
-    m_pLineEdit2 = new QLineEdit;
 
     mainHLayout = new QHBoxLayout;
-    mainVLayout = new QVBoxLayout;
-    mainVLayout->addWidget(m_pLineEdit2);
     mainHLayout->addWidget(m_pLineEdit);
     mainHLayout->addWidget(m_pPushButton);
-    mainVLayout->addLayout(mainHLayout);
-    setLayout(mainVLayout);
+    setLayout(mainHLayout);
 
 
     connect(m_pPushButton, SIGNAL(clicked()), this, SLOT(onAddClicked()));

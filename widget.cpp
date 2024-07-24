@@ -75,7 +75,7 @@ void Widget::onDeleteButtonClicked(HabitTasksWidgetClass* received)
     int i = m_pMyHabits.indexOf(received);
     QModelIndex index = m_pTableWidgetClassModel->index(i, 0);
     qDebug()<<i;
-    m_pTableWidgetClassModel->setData(index ,true, Qt::UserRole);
+    m_pTableWidgetClassModel->setData(index , "red", Qt::UserRole);
     m_pListVLayout->removeWidget(received);
     m_pMyHabits[i]->setEnabled(true);
     received->deleteLater();
@@ -83,16 +83,12 @@ void Widget::onDeleteButtonClicked(HabitTasksWidgetClass* received)
 
 void Widget::onCompleteButtonClicked(HabitTasksWidgetClass* received)
 {
-    if(m_pMyHabits.contains(received)){
-        qDebug()<<"there is sth...";
-        indexOfHabit = m_pMyHabits.indexOf(received);
-        qDebug()<<indexOfHabit;
-        m_pTableWidgetClassModel->deleteHabit(indexOfHabit);
-    }else{
-        qDebug()<<"no item in comp";
-    }
+    int i = m_pMyHabits.indexOf(received);
+    QModelIndex index = m_pTableWidgetClassModel->index(i, 0);
+    qDebug()<<i;
+    m_pTableWidgetClassModel->setData(index , "green", Qt::UserRole);
     m_pListVLayout->removeWidget(received);
-    m_pMyHabits.removeOne(received);
+    m_pMyHabits[i]->setEnabled(true);
     received->deleteLater();
 }
 

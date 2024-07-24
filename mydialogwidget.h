@@ -28,10 +28,8 @@ private:
     QString text;
     QLineEdit* m_pLineEdit;
     QPushButton* m_pPushButton;
-    QLineEdit* m_pLineEdit2;
 
     QHBoxLayout* mainHLayout;
-    QVBoxLayout* mainVLayout;
 };
 
 #endif // MYDIALOGWIDGET_H

@@ -16,3 +16,12 @@ QString stylehelper::getAddButtonStyle()
            "    background-color: red;"
            "}";
 }
+
+QString stylehelper::getHabitTasksLabelStyle()
+{
+    return "QLabel{"
+           "    font-family: 'Roboto Mono';"
+           "    font-size: 15px;"
+           "    background-color: black;"
+           "}";
+}

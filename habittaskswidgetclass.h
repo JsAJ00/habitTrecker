@@ -12,12 +12,7 @@ class HabitTasksWidgetClass : public QWidget
     Q_OBJECT
 public:
     explicit HabitTasksWidgetClass(QString& name, QWidget *parent = nullptr);
-    QPushButton* getCompleteButton(){
-        return completeBtn;
-    }
-    void changeBackGround(QString color){
-        setStyleSheet("background-color: " + color);
-    };
+
 signals:
     void DeleteHabitSignal(HabitTasksWidgetClass*);
     void CompleteHabitSignal(HabitTasksWidgetClass*);
@@ -26,13 +21,14 @@ private slots:
     void ondeleteBtnClicked();
 
 private:
-    QString& name;
-    QVBoxLayout* myVLayout;
-    QHBoxLayout* myHLayout;
-
     QLabel* lbl;
     QPushButton* deleteBtn;
     QPushButton* completeBtn;
+
+    QVBoxLayout* myVLayout;
+    QHBoxLayout* myHLayout;
+
+    QString name;
 };
 
 #endif // HABITTASKSWIDGETCLASS_H

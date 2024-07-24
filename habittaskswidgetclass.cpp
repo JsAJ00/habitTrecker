@@ -4,24 +4,26 @@
 HabitTasksWidgetClass::HabitTasksWidgetClass(QString& name, QWidget *parent)
     : QWidget{parent}, name(name)
 {
+    //initializations
     lbl = new QLabel(name);
-    lbl->setStyleSheet("font-family: 'Roboto Mono';"
-                  "font-size: 15px;"
-                  "background-color: black;");
-
     completeBtn = new QPushButton("complete");
-    completeBtn->setStyleSheet(stylehelper::getAddButtonStyle());
     deleteBtn = new QPushButton("delete");
-    deleteBtn->setStyleSheet(stylehelper::getAddButtonStyle());
-
     myHLayout = new QHBoxLayout;
     myVLayout = new QVBoxLayout;
 
 
+    //style settings
+    lbl->setStyleSheet(stylehelper::getHabitTasksLabelStyle());
+    completeBtn->setStyleSheet(stylehelper::getAddButtonStyle());
+    deleteBtn->setStyleSheet(stylehelper::getAddButtonStyle());
+
+
+    //main settings
     setFixedSize(400,150);
     setStyleSheet("background-color: white;");
 
 
+    //setting Layouts
     myHLayout->addWidget(completeBtn);
     myHLayout->addWidget(deleteBtn);
     myVLayout->addWidget(lbl);
@@ -30,6 +32,7 @@ HabitTasksWidgetClass::HabitTasksWidgetClass(QString& name, QWidget *parent)
     setLayout(myVLayout);
 
 
+    //connectings
     connect(completeBtn, SIGNAL(clicked()),SLOT(onCompleteBtnClicked()));
     connect(deleteBtn, SIGNAL(clicked()),SLOT(ondeleteBtnClicked()));
 }

@@ -3,7 +3,6 @@ debug/habittaskswidgetclass.o
 debug/main.o
 debug/mydialogwidget.o
 debug/stylehelper.o
-debug/tabledeligateclass.o
 debug/tablewidgetclassmodel.o
 debug/widget.o
 debug/qrc_resourses.o

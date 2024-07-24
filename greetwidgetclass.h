@@ -14,21 +14,21 @@ class GreetWidgetClass : public QWidget
     Q_OBJECT
 public:
     explicit GreetWidgetClass(QWidget *parent = nullptr);
-    myDialogWidget* getMyDialog(){
-        return m_pDialogWidget;
-    }
+    myDialogWidget* getMyDialog();
+
 private slots:
     void onAddHabitButtonClicked();
 private:
     QWidget* mainWidget;
+    myDialogWidget* m_pDialogWidget;
 
-    void createDialog();
-    void createHabit();
     QLabel* m_pGreetLabel;
     QPushButton* m_pAddHabitButton;
-    myDialogWidget* m_pDialogWidget;
+
     QHBoxLayout* m_pGreetAndHabitHLayout;
     QVBoxLayout* m_pGHabitVLayout;
+
+    void createHabit();
 };
 
 #endif // GREETWIDGETCLASS_H

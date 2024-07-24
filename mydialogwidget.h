@@ -13,12 +13,7 @@ class myDialogWidget : public QWidget
     Q_OBJECT
 public:
     explicit myDialogWidget(QWidget *parent = nullptr);
-    QPushButton* getPushButton(){
-        return m_pPushButton;
-    }
-    QString getTextFromLineEdit(){
-        return m_pLineEdit->text();
-    }
+    QString getTextFromLineEdit();
 
 private slots:
     void onAddClicked();

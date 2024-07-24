@@ -3,10 +3,11 @@
 TableWidgetClassModel::TableWidgetClassModel(QAbstractTableModel *parent)
     : QAbstractTableModel{parent}
 {
+    //resizing habitData under Bools vector
     habitData.resize(0, QVector<bool>(7, false));
-
 }
 
+//getters
 int TableWidgetClassModel::rowCount(const QModelIndex &) const
 {
     return habits.size();
@@ -17,66 +18,80 @@ int TableWidgetClassModel::columnCount(const QModelIndex &) const
     return 7;
 }
 
-QVariant TableWidgetClassModel::data(const QModelIndex &index, int role) const
-{
-    switch(role){
+
+//data view settings
+QVariant TableWidgetClassModel::data(const QModelIndex &index, int role) const {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
+    switch (role) {
     case Qt::DisplayRole:
-        return habitData[index.row()][index.column()] ? Qt::Checked : Qt::Unchecked;
     case Qt::CheckStateRole:
         return habitData[index.row()][index.column()] ? Qt::Checked : Qt::Unchecked;
+
     case Qt::BackgroundRole:
-        if (MyColor!="none"){
-            if (MyColor == "red"){
+        if (MyColor != "none") {
+            if (MyColor == "red") {
                 return QBrush(Qt::red);
-            }else if (MyColor == "green"){
+            } else if (MyColor == "green") {
                 return QBrush(Qt::green);
             }
-        }else{
-            return QBrush(Qt::blue);
         }
-    case Qt::FontRole:
+        return QBrush(Qt::blue);
+
+    case Qt::FontRole: {
         QFont boldFont(":/new/fonts/resources/RobotoMono-Italic-VariableFont_wght.ttf");
         boldFont.setBold(true);
         return boldFont;
     }
-    return QVariant();
+
+    default:
+        return QVariant();
+    }
 }
 
-QVariant TableWidgetClassModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (orientation == Qt::Horizontal) {
-        if (role == Qt::ForegroundRole) {
-            if (section % 2 == 0)
-                return QBrush(Qt::red);
-            else
-                return QBrush(Qt::white);
-        }
-        else if (role == Qt::BackgroundRole) {
+
+
+//Headers data view settings
+QVariant TableWidgetClassModel::headerData(int section, Qt::Orientation orientation, int role) const {
+    switch (orientation) {
+    case Qt::Horizontal:
+        switch (role) {
+        case Qt::ForegroundRole:
+            return QBrush(section % 2 == 0 ? Qt::red : Qt::white);
+
+        case Qt::BackgroundRole:
             return QBrush(Qt::green);
-        }
-    }
-    if (orientation == Qt::Vertical){
-        if (role == Qt::SizeHintRole){
-            return QSize(100,135);
-        }
-    }
 
-
-    if(role == Qt::DisplayRole){
-        //setting data
-        if(orientation == Qt::Horizontal){
+        case Qt::DisplayRole: {
             QStringList days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
             return days[section];
-
-        }else if(orientation == Qt::Vertical){
-            return habits[section];
         }
 
+        default:
+            return QVariant();
+        }
+
+    case Qt::Vertical:
+        switch (role) {
+        case Qt::SizeHintRole:
+            return QSize(100, 135);
+
+        case Qt::DisplayRole:
+            return habits[section];
+
+        default:
+            return QVariant();
+        }
+
+    default:
+        return QVariant();
     }
-    return QVariant();
 }
 
 
+//change color of cell
 bool TableWidgetClassModel::setData(const QModelIndex &index, const QString& color, int role)
 {
     if(role == Qt::UserRole){
@@ -88,6 +103,7 @@ bool TableWidgetClassModel::setData(const QModelIndex &index, const QString& col
 }
 
 
+//Adding habits
 void TableWidgetClassModel::addHabit(const QString &habit, const QVector<int> &days)
 {
     beginInsertRows(QModelIndex(), habits.size(), habits.size());
@@ -99,13 +115,4 @@ void TableWidgetClassModel::addHabit(const QString &habit, const QVector<int> &d
     }
     endInsertRows();
 }
-//sadg
-void TableWidgetClassModel::deleteHabit(const int index)
-{
-    beginRemoveRows(QModelIndex(), 0, 0);
-    habits.remove(index);
-    endRemoveRows();
-}
-
-
 

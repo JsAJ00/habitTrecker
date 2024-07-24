@@ -14,7 +14,6 @@ SOURCES += \
     main.cpp \
     mydialogwidget.cpp \
     stylehelper.cpp \
-    tabledeligateclass.cpp \
     tablewidgetclassmodel.cpp \
     widget.cpp
 
@@ -23,7 +22,6 @@ HEADERS += \
     habittaskswidgetclass.h \
     mydialogwidget.h \
     stylehelper.h \
-    tabledeligateclass.h \
     tablewidgetclassmodel.h \
     widget.h
 

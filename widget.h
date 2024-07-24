@@ -6,7 +6,6 @@
 #include "greetwidgetclass.h"
 #include "habittaskswidgetclass.h"
 #include "tablewidgetclassmodel.h"
-#include "tabledeligateclass.h"
 
 class Widget : public QWidget
 {
@@ -15,6 +14,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
 public slots:
     void onAddButtonClicked();
     void onDeleteButtonClicked(HabitTasksWidgetClass* );
@@ -22,22 +22,23 @@ public slots:
 private:
     QWidget* m_pTableArea;
     QWidget* m_pListArea;
-
-    QString text;
-    QHBoxLayout* mainHLayout;
-    QVBoxLayout* mainVLayout;
-
     GreetWidgetClass* m_pGreetAreaWidget;
+
     QTableView* tableView;
     TableWidgetClassModel* m_pTableWidgetClassModel;
-
     QList<HabitTasksWidgetClass*> m_pMyHabits;
+
+    QHBoxLayout* mainHLayout;
+    QVBoxLayout* mainVLayout;
     QVBoxLayout* m_pListVLayout;
-    int indexOfHabit;
 
     void setFont();
     void setText(QString txt){
         text = txt;
     };
+    void changeCellColor(QString color, HabitTasksWidgetClass* received);
+
+    QString text;
+    int indexOfHabit;
 };
 #endif // WIDGET_H

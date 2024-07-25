@@ -98,3 +98,4 @@ void Widget::changeCellColor(QString color, HabitTasksWidgetClass* received)
     m_pMyHabits[i]->setEnabled(true);
     received->deleteLater();
 }
+

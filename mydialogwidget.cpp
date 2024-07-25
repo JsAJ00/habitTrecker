@@ -10,9 +10,9 @@ myDialogWidget::myDialogWidget(QWidget *parent)
 
 
     //initializations
-    m_pLineEdit = new QLineEdit;
-    m_pPushButton = new QPushButton("add");
-    mainHLayout = new QHBoxLayout;
+    m_pLineEdit     = new QLineEdit;
+    m_pPushButton   = new QPushButton("add");
+    mainHLayout     = new QHBoxLayout;
 
 
     //layouts setting
@@ -29,7 +29,6 @@ myDialogWidget::myDialogWidget(QWidget *parent)
 //slots
 void myDialogWidget::onAddClicked()
 {
-    // text = m_pLineEdit->text();
     emit mySignal();
 }
 

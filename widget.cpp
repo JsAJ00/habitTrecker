@@ -49,6 +49,7 @@ Widget::Widget(QWidget *parent)
     mainHLayout->addWidget(m_pListArea);
     setLayout(mainHLayout);
 
+
     //connectings
     connect(m_pGreetAreaWidget->getMyDialog(), &myDialogWidget::mySignal,
             this, &Widget::onAddButtonClicked);

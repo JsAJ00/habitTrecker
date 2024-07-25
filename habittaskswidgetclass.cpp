@@ -5,17 +5,17 @@ HabitTasksWidgetClass::HabitTasksWidgetClass(QString& name, QWidget *parent)
     : QWidget{parent}, name(name)
 {
     //initializations
-    lbl = new QLabel(name);
+    lbl         = new QLabel(name);
     completeBtn = new QPushButton("complete");
-    deleteBtn = new QPushButton("delete");
-    myHLayout = new QHBoxLayout;
-    myVLayout = new QVBoxLayout;
+    deleteBtn   = new QPushButton("delete");
+    myHLayout   = new QHBoxLayout;
+    myVLayout   = new QVBoxLayout;
 
 
     //style settings
-    lbl->setStyleSheet(stylehelper::getHabitTasksLabelStyle());
-    completeBtn->setStyleSheet(stylehelper::getAddButtonStyle());
-    deleteBtn->setStyleSheet(stylehelper::getAddButtonStyle());
+    lbl         ->setStyleSheet(stylehelper::getHabitTasksLabelStyle());
+    completeBtn ->setStyleSheet(stylehelper::getAddButtonStyle());
+    deleteBtn   ->setStyleSheet(stylehelper::getAddButtonStyle());
 
 
     //main settings

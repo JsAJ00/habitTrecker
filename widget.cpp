@@ -1,4 +1,5 @@
 #include "widget.h"
+#include "stylehelper.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -18,31 +19,33 @@ Widget::Widget(QWidget *parent)
 
 
     //sizing
-    m_pTableArea->setFixedSize(1100, 650);
-    m_pListArea ->setFixedSize(400,  800);
+    m_pTableArea->setFixedSize(1040, 650);
+    m_pListArea ->setFixedSize(460,  800);
 
 
-    //configurateListArea
-    m_pListArea   ->setStyleSheet("background-color: green;");
+    //configurate List Area
+    m_pListArea   ->setStyleSheet("background-color: #ffc107;;");
     m_pListVLayout->setContentsMargins(0,0,0,0);
     m_pListVLayout->setSpacing(0);
     m_pListVLayout->setAlignment(Qt::AlignTop);
     m_pListArea   ->setLayout(m_pListVLayout);
 
 
-    //setting tableView
-    tableView->setFixedSize(1100, 650);
+    //set table View
+    tableView->setFixedSize(1040, 650);
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableView->verticalHeader()  ->setSectionResizeMode(QHeaderView::ResizeToContents);
     tableView->setModel(m_pTableWidgetClassModel);
+    tableView->setStyleSheet(stylehelper::getTableStyle());
 
-    //setting right configurate to Layouts
+
+    //set right configurate to Layouts
     mainVLayout->setContentsMargins(0,0,0,0);
     mainVLayout->setSpacing(0);
     mainHLayout->setContentsMargins(0,0,0,0);
     mainHLayout->setSpacing(0);
 
-    //setting Layouts
+    //set Layouts
     mainVLayout->addWidget(m_pGreetAreaWidget);
     mainVLayout->addWidget(m_pTableArea);
     mainHLayout->addLayout(mainVLayout);

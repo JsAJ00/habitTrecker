@@ -58,6 +58,9 @@ QVariant TableWidgetClassModel::headerData(int section, Qt::Orientation orientat
     switch (orientation) {
     case Qt::Horizontal:
         switch (role) {
+        case Qt::SizeHintRole:
+            return QSize(130, 30);
+
         case Qt::ForegroundRole:
             return QBrush(section % 2 == 0 ? Qt::red : Qt::white);
 
@@ -76,7 +79,7 @@ QVariant TableWidgetClassModel::headerData(int section, Qt::Orientation orientat
     case Qt::Vertical:
         switch (role) {
         case Qt::SizeHintRole:
-            return QSize(100, 135);
+            return QSize(130, 130);
 
         case Qt::DisplayRole:
             return habits[section];

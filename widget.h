@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtAlgorithms>
+#include <QTableView>
 #include "greetwidgetclass.h"
 #include "habittaskswidgetclass.h"
 #include "tablewidgetclassmodel.h"

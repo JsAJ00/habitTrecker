@@ -14,12 +14,14 @@ HabitTasksWidgetClass::HabitTasksWidgetClass(QString& name, QWidget *parent)
 
     //style settings
     lbl         ->setStyleSheet(stylehelper::getHabitTasksLabelStyle());
+    lbl         ->setAlignment(Qt::AlignCenter);
+
     completeBtn ->setStyleSheet(stylehelper::getAddButtonStyle());
     deleteBtn   ->setStyleSheet(stylehelper::getAddButtonStyle());
 
 
     //main settings
-    setFixedSize(400,150);
+    setFixedSize(450,150);
     setStyleSheet("background-color: white;");
 
 

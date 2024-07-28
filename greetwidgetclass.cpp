@@ -13,11 +13,15 @@ GreetWidgetClass::GreetWidgetClass(QWidget *parent)
     m_pGHabitVLayout        = new QVBoxLayout;
 
 
-    //mainWidget setting
-    mainWidget              ->setFixedSize(1100, 150);
-    mainWidget              ->setStyleSheet("background-color: grey;");
+    //mainWidget set
+    mainWidget              ->setFixedSize(1040, 150);
+    mainWidget              ->setStyleSheet("background-color: #424242;");
 
-    //AddButton setting
+
+    //Greet Label set
+    m_pGreetLabel->setStyleSheet(stylehelper::getHabitTasksLabelStyle());
+
+    //AddButton set
     m_pAddHabitButton       ->setFixedSize(150, 35);
     m_pAddHabitButton       ->setStyleSheet(stylehelper::getAddButtonStyle());
 
